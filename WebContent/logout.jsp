@@ -9,6 +9,8 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link href="main.css" rel="stylesheet" type="text/css">
+    <link href="fontawesome-all.min.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 

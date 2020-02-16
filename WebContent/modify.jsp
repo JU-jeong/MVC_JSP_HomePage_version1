@@ -14,6 +14,8 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script language="JavaScript" src="members.js" ></script>
+<link href="main.css" rel="stylesheet" type="text/css">
+    <link href="fontawesome-all.min.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 	<form action = "modifyOK.jsp" method = "post" name="reg_frm">
