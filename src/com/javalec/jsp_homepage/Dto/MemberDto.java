@@ -11,6 +11,8 @@ public class MemberDto {
 	private Timestamp rDate;
 	private String address;
 	
+	public MemberDto() {
+	}
 	
 	public MemberDto(String id, String pw, String name, String eMail, Timestamp rDate, String address) {
 		super();

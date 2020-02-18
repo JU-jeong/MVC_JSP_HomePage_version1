@@ -40,17 +40,44 @@ public class MemberDao {
 		}
 	}
 	
-	public void JoinOK(String id, String pw, String pw_check, String name, String eMail, Timestamp time, String address) {
+	public void JoinOK(String PId, String PPw, String PName, String PEMail, Timestamp PTime, String PAddress) {
 		// TODO Auto-generated method stub
 		
-		if(confirmId(id) == 1) {
-			
+		if(confirmId(PId) == 0) {
+			MemberDto dto = new MemberDto(PId, PPw, PName, PEMail, PTime, PAddress);
+			int ri = insertMember(dto);
+			if(ri == 1) {
+				System.out.println("<script>alert('Join Success');"
+						+ "</script>");
+			}
+			else {
+				System.out.println("<script>alert('Join Failure');"
+						+ "</script>");
+			}
 		}
-		int ri = dao.insertMember(dto);
-		
-		
-		
+		else {
+			System.out.println("<script>alert('Username already taken.');"
+					+ "</script>");
+		}
 	}
+	public void LoginOK(String id, String pw) {
+		// TODO Auto-generated method stub
+		int ri = userCheck(id, pw);
+		if(ri == 1) {
+			System.out.println("<script>alert('Login Success');"
+					+ "</script>");
+		} else if(ri == 0) {
+			System.out.println("<script>alert('PW is not correct');"
+					+ "</script>");
+		} else {
+			System.out.println("<script>alert('ID is not exist');"
+					+ "</script>");
+		}
+		
+		System.out.println("<script>document.location.href='login.jsp'" +
+				"</script>");
+	}
+	
 	
 	
 	public int insertMember(MemberDto dto) {
@@ -233,5 +260,7 @@ public class MemberDao {
 		}
 		return connection;
 	}
+
+	
 }
 
