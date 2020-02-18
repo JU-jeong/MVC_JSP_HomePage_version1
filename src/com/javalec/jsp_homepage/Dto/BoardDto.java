@@ -1,4 +1,4 @@
-package com.javalec.jsp_HomePage.Dto;
+package com.javalec.jsp_homepage.Dto;
 
 import java.sql.Timestamp;
 
@@ -14,11 +14,11 @@ public class BoardDto {
 	int bStep;
 	int bIndent;
 	
-	public BDto() {
+	public BoardDto() {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public BDto(int bId, String bName, String bTitle, String bContent, Timestamp bDate, int bHit, int bGroup, int bStep, int bIndent) {
+	public BoardDto(int bId, String bName, String bTitle, String bContent, Timestamp bDate, int bHit, int bGroup, int bStep, int bIndent) {
 		// TODO Auto-generated constructor stub
 		this.bId = bId;
 		this.bName = bName;

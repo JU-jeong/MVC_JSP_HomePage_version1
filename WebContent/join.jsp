@@ -6,18 +6,16 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script language ="JavaScript" src ="members.js"></script>
-<link href="main.css" rel="stylesheet" type="text/css">
-    <link href="fontawesome-all.min.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-	<form action ="joinOK.jsp" method ="post" name = "reg_frm">
+	<form action ="joinOK.do" method ="post" name = "reg_frm">
 		아이디: <input type ="text" name ="id" size ="20"><br/>
 		비밀번호: <input type ="password" name ="pw" size ="20"><br/>
 		비밀번호 확인: <input type ="password" name ="pw_check" size ="20"><br/>
 		이름: <input type ="text" name ="name" size ="20"><br/>
 		메일주소: <input type ="text" name ="eMail" size ="20"><br/>
 		주소: <input type ="text" name ="address" size ="50"><br/>
-		<input type = "button" value = "회원가입" onclick="infoConfirm()"> &nbsp;&nbsp;&nbsp; <input type = "reset" value = "취소" onclick = "javascript:window.location = 'login.jsp'"> 
+		<input type = "button" value = "회원가입" onclick="infoConfirm()"> &nbsp;&nbsp;&nbsp; <input type = "reset" value = "취소" onclick = "javascript:window.location = 'login.do'"> 
 	
 	</form>
 </body>

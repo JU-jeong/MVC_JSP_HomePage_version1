@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 
 import javax.naming.Context;
@@ -25,13 +26,32 @@ public class MemberDao {
 	public static final int MEMBER_LOGIN_SUCCESS=1;
 	public static final int MEMBER_LOGIN_IS_NOT=-1;
 	
-	private static MemberDao instance = new MemberDao();
+	DataSource dataSource;
 	
-	private MemberDao() {}
-	
-	public static MemberDao getInstance() {
-		return instance;
+	public MemberDao() {
+		// MemberDao Auto-generated constructor stub
+		
+		try {
+			Context context = new InitialContext();
+			dataSource = (DataSource) context.lookup("java:comp/env/jdbc/Oracle11g");
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
 	}
+	
+	public void JoinOK(String id, String pw, String pw_check, String name, String eMail, Timestamp time, String address) {
+		// TODO Auto-generated method stub
+		
+		if(confirmId(id) == 1) {
+			
+		}
+		int ri = dao.insertMember(dto);
+		
+		
+		
+	}
+	
 	
 	public int insertMember(MemberDto dto) {
 		int ri=0;

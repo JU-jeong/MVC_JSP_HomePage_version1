@@ -1,5 +1,5 @@
-<%@page import="com.javalec.jsp_homepage.Dto.MemberDto"%>
 <%@page import="com.javalec.jsp_homepage.Dao.MemberDao"%>
+<%@page import="com.javalec.jsp_homepage.Dto.MemberDto"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
@@ -46,8 +46,6 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link href="main.css" rel="stylesheet" type="text/css">
-    <link href="fontawesome-all.min.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 
