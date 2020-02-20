@@ -1,5 +1,6 @@
 package com.javalec.jsp_homepage.Dao;
 
+import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -28,6 +29,11 @@ public class MemberDao {
 	
 	DataSource dataSource;
 	
+		
+
+
+
+	
 	public MemberDao() {
 		// MemberDao Auto-generated constructor stub
 		
@@ -40,42 +46,20 @@ public class MemberDao {
 		}
 	}
 	
-	public void JoinOK(String PId, String PPw, String PName, String PEMail, Timestamp PTime, String PAddress) {
+	public int JoinOK(String PId, String PPw, String PName, String PEMail, Timestamp PTime, String PAddress) {
 		// TODO Auto-generated method stub
-		
+		int ri=0;
 		if(confirmId(PId) == 0) {
 			MemberDto dto = new MemberDto(PId, PPw, PName, PEMail, PTime, PAddress);
-			int ri = insertMember(dto);
-			if(ri == 1) {
-				System.out.println("<script>alert('Join Success');"
-						+ "</script>");
-			}
-			else {
-				System.out.println("<script>alert('Join Failure');"
-						+ "</script>");
-			}
+			ri = insertMember(dto);
 		}
-		else {
-			System.out.println("<script>alert('Username already taken.');"
-					+ "</script>");
-		}
+		return ri;
 	}
-	public void LoginOK(String id, String pw) {
+	public int LoginOK(String id, String pw) {
 		// TODO Auto-generated method stub
-		int ri = userCheck(id, pw);
-		if(ri == 1) {
-			System.out.println("<script>alert('Login Success');"
-					+ "</script>");
-		} else if(ri == 0) {
-			System.out.println("<script>alert('PW is not correct');"
-					+ "</script>");
-		} else {
-			System.out.println("<script>alert('ID is not exist');"
-					+ "</script>");
-		}
-		
-		System.out.println("<script>document.location.href='login.jsp'" +
-				"</script>");
+		int ri = 0;
+		ri = userCheck(id, pw);
+		return ri;
 	}
 	
 	
@@ -182,41 +166,6 @@ public class MemberDao {
 		return ri;
 	}
 	
-	public MemberDto getMember(String id) {
-		Connection connection = null;
-		PreparedStatement pstmt = null;
-		ResultSet set = null;
-		String query = "select * from members where id = ?";
-		MemberDto dto = null;
-		
-		try {
-			connection = getConnection();
-			pstmt = connection.prepareStatement(query);
-			pstmt.setString(1, id);
-			set = pstmt.executeQuery();
-			
-			if(set.next()) {
-				dto = new MemberDto();
-				dto.setId(set.getString("id"));
-				dto.setPw(set.getString("pw"));
-				dto.setName(set.getString("name"));
-				dto.seteMail(set.getString("eMail"));
-				dto.setrDate(set.getTimestamp("rDate"));
-				dto.setAddress(set.getString("address"));
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-			try {
-				set.close();
-				pstmt.close();
-				connection.close();
-			} catch (Exception e2) {
-				// TODO: handle exception
-			}
-		}
-		return dto;
-	}
 	
 	public int updateMember(MemberDto dto) {
 		int ri=0;

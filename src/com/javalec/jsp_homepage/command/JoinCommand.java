@@ -1,5 +1,7 @@
 package com.javalec.jsp_homepage.command;
 
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.Timestamp;
 
 import javax.servlet.http.HttpServletRequest;
@@ -22,8 +24,25 @@ public class JoinCommand implements Command {
 		String address = request.getParameter("address");
 		
 		MemberDao dao = new MemberDao();
-		dao.JoinOK(id, pw, name, eMail, time, address);
+		int ri = dao.JoinOK(id, pw, name, eMail, time, address);
 		
+		PrintWriter out = null;
+		try {
+			out = response.getWriter();
+			if(ri == 1) {
+				out.print("<script>alert('Join Success');"
+						+ "</script>");
+			}
+			else {
+				out.print("<script>alert('Join Failure');"
+						+ "</script>");
+			}
+			out.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+
 	}
 
 }

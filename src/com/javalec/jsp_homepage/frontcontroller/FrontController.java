@@ -3,6 +3,7 @@ package com.javalec.jsp_homepage.frontcontroller;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -11,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.javalec.jsp_homepage.command.Command;
 import com.javalec.jsp_homepage.command.JoinCommand;
+import com.javalec.jsp_homepage.command.LoginCommand;
 
 /**
  * Servlet implementation class FrontController
@@ -58,7 +60,9 @@ public class FrontController extends HttpServlet {
 		if(com.equals("/login.do")) {
 			viewPage = "login.jsp";
 		} else if(com.equals("/loginOK.do")) {
-			viewPage = "loginOK.jsp";
+			command = new LoginCommand();
+			command.execute(request, response);
+			viewPage = "login.do";
 		} else if(com.equals("/join.do")) {
 			viewPage = "join.jsp";
 		} else if(com.equals("/joinOK.do")) {
@@ -67,6 +71,8 @@ public class FrontController extends HttpServlet {
 			viewPage = "login.do";
 		}
 		
+		RequestDispatcher dispatcher = request.getRequestDispatcher(viewPage);
+		dispatcher.forward(request, response);
 		
 	}
 
