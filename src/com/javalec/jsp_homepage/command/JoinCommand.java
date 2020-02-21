@@ -25,7 +25,7 @@ public class JoinCommand implements Command {
 		String address = request.getParameter("address");
 		
 		MemberDao dao = new MemberDao();
-		Integer ri = dao.JoinOK(id, pw, name, eMail, time, address);
+		int ri = dao.JoinOK(id, pw, name, eMail, time, address);
 		HttpSession session = request.getSession();
 		session.setAttribute("ri", ri);
 		

@@ -11,8 +11,27 @@
 <title>Insert title here</title>
 </head>
 <body>
-${ri}
+
+	<c:set var = "ri" value = "${ri}"/>
 	
+	<c:choose>
+    <c:when test="${ri eq 1}">
+        <script language = "javascript">
+			alert("Join Success");
+		</script>
+    </c:when>
+    <c:when test="${ri eq 0}">
+        <script language = "javascript">
+			alert("Join Failure");
+		</script>
+    </c:when>
+    <c:when test="${ri eq -1}">
+        <script language = "javascript">
+			alert("Join Failure");
+		</script>
+    </c:when>
+	</c:choose>
+
 	<form action = "loginOK.do" method = "post">
 		아이디: <input type = "text" name = "id" value="<% if(session.getAttribute("id") != null) out.println(session.getAttribute("id"));%>"> <br/>
 		비밀번호: <input type = "password" name = "pw"><br/>
