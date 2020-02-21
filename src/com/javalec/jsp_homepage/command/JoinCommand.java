@@ -6,6 +6,7 @@ import java.sql.Timestamp;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.javalec.jsp_homepage.Dao.MemberDao;
 import com.javalec.jsp_homepage.Dto.MemberDto;
@@ -24,23 +25,9 @@ public class JoinCommand implements Command {
 		String address = request.getParameter("address");
 		
 		MemberDao dao = new MemberDao();
-		int ri = dao.JoinOK(id, pw, name, eMail, time, address);
-		
-		PrintWriter out = null;
-		try {
-			out = response.getWriter();
-			if(ri == 1) {
-				out.print("<script>alert('Join Success');"
-						+ "</script>");
-			}
-			else {
-				out.print("<script>alert('Join Failure');"
-						+ "</script>");
-			}
-			out.close();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		Integer ri = dao.JoinOK(id, pw, name, eMail, time, address);
+		HttpSession session = request.getSession();
+		session.setAttribute("ri", ri);
 		
 
 	}

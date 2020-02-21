@@ -1,5 +1,6 @@
 package com.javalec.jsp_homepage.Dao;
 
+import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -11,6 +12,7 @@ import java.util.ArrayList;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
+import javax.servlet.http.HttpServletResponse;
 import javax.sql.DataSource;
 
 import com.javalec.jsp_homepage.Dto.MemberDto;
@@ -53,6 +55,7 @@ public class MemberDao {
 			MemberDto dto = new MemberDto(PId, PPw, PName, PEMail, PTime, PAddress);
 			ri = insertMember(dto);
 		}
+		
 		return ri;
 	}
 	public int LoginOK(String id, String pw) {
