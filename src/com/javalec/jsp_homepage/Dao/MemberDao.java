@@ -50,25 +50,25 @@ public class MemberDao {
 	
 	public int JoinOK(String PId, String PPw, String PName, String PEMail, Timestamp PTime, String PAddress) {
 		// TODO Auto-generated method stub
-		int ri=0;
+		int Join_Result=0;
 		if(confirmId(PId) == 0) {
 			MemberDto dto = new MemberDto(PId, PPw, PName, PEMail, PTime, PAddress);
-			ri = insertMember(dto);
+			Join_Result = insertMember(dto);
 		}
 		
-		return ri;
+		return Join_Result;
 	}
 	public int LoginOK(String id, String pw) {
 		// TODO Auto-generated method stub
-		int ri = 0;
-		ri = userCheck(id, pw);
-		return ri;
+		int Login_Result = 0;
+		Login_Result = userCheck(id, pw);
+		return Login_Result;
 	}
 	
 	
 	
 	public int insertMember(MemberDto dto) {
-		int ri=0;
+		int result=0;
 		
 		Connection connection = null;
 		PreparedStatement pstmt = null;
@@ -84,7 +84,7 @@ public class MemberDao {
 			pstmt.setTimestamp(5, dto.getrDate());
 			pstmt.setString(6, dto.getAddress());
 			pstmt.executeUpdate();
-			ri = MemberDao.MEMBER_JOIN_SUCCESS;
+			result = MemberDao.MEMBER_JOIN_SUCCESS;
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -95,11 +95,11 @@ public class MemberDao {
 				e2.printStackTrace();
 			}
 		}
-		return ri;
+		return result;
 	}
 	
 	public int confirmId(String id) {
-		int ri = 0;
+		int result = 0;
 		
 		Connection connection = null;
 		PreparedStatement pstmt = null;
@@ -112,9 +112,9 @@ public class MemberDao {
 			pstmt.setString(1, id);
 			set = pstmt.executeQuery();
 			if(set.next()) {
-				ri = MemberDao.MEMBER_EXISTENT;
+				result = MemberDao.MEMBER_EXISTENT;
 			} else {
-				ri = MemberDao.MEMBER_NONEXISTENT;
+				result = MemberDao.MEMBER_NONEXISTENT;
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -127,11 +127,11 @@ public class MemberDao {
 				e2.printStackTrace();
 			}
 		}
-		return ri;
+		return result;
 	}
 	
 	public int userCheck(String id, String pw) {
-		int ri = 0;
+		int result = 0;
 		String dbPw;
 		
 		Connection connection = null;
@@ -148,12 +148,12 @@ public class MemberDao {
 			if(set.next()) {
 				dbPw = set.getString("pw");
 				if(dbPw.equals(pw)) {
-					ri = MemberDao.MEMBER_LOGIN_SUCCESS;
+					result = MemberDao.MEMBER_LOGIN_SUCCESS;
 				} else {
-					ri = MemberDao.MEMBER_LOGIN_PW_NO_GOOD;
+					result = MemberDao.MEMBER_LOGIN_PW_NO_GOOD;
 				}
 			} else {
-				ri = MemberDao.MEMBER_LOGIN_IS_NOT;
+				result = MemberDao.MEMBER_LOGIN_IS_NOT;
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -166,12 +166,46 @@ public class MemberDao {
 				e2.printStackTrace();
 			} 
 		}
-		return ri;
+		return result;
+	}
+	public MemberDto getMember(String id) {
+		Connection connection = null;
+		PreparedStatement pstmt = null;
+		ResultSet set = null;
+		String query = "select * from members where id = ?";
+		MemberDto dto = null;
+		
+		try {
+			connection = getConnection();
+			pstmt = connection.prepareStatement(query);
+			pstmt.setString(1, id);
+			set = pstmt.executeQuery();
+			
+			if(set.next()) {
+				dto = new MemberDto();
+				dto.setId(set.getString("id"));
+				dto.setPw(set.getString("pw"));
+				dto.setName(set.getString("name"));
+				dto.seteMail(set.getString("eMail"));
+				dto.setrDate(set.getTimestamp("rDate"));
+				dto.setAddress(set.getString("address"));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				set.close();
+				pstmt.close();
+				connection.close();
+			} catch (Exception e2) {
+				// TODO: handle exception
+			}
+		}
+		return dto;
 	}
 	
-	
 	public int updateMember(MemberDto dto) {
-		int ri=0;
+		int result=0;
 		
 		Connection connection = null;
 		PreparedStatement pstmt = null;
@@ -184,7 +218,7 @@ public class MemberDao {
 			pstmt.setString(2, dto.geteMail());
 			pstmt.setString(3, dto.getAddress());
 			pstmt.setString(4, dto.getId());
-			ri = pstmt.executeUpdate();
+			result = pstmt.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -195,7 +229,7 @@ public class MemberDao {
 				e2.printStackTrace();
 			}
 		}
-		return ri;
+		return result;
 	}
 	private Connection getConnection() {
 		
