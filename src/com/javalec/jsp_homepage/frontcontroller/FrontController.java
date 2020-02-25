@@ -14,6 +14,7 @@ import com.javalec.jsp_homepage.command.Command;
 import com.javalec.jsp_homepage.command.JoinCommand;
 import com.javalec.jsp_homepage.command.LoginCommand;
 import com.javalec.jsp_homepage.command.LogoutCommand;
+import com.javalec.jsp_homepage.command.ModifyCommand;
 
 /**
  * Servlet implementation class FrontController
@@ -76,11 +77,13 @@ public class FrontController extends HttpServlet {
 			command = new LogoutCommand();
 			command.execute(request, response);
 			viewPage = "login.do";
-		} //else if(com.equals("/modify.do")) {
-//			command = new LogoutCommand();
-//			command.execute(request, response);
-//			viewPage = "modify.jsp";
-//		}
+		} else if(com.equals("/modify.do")) {
+			viewPage = "modify.jsp";
+		} else if(com.equals("/modifyOK.do")) {
+			command = new ModifyCommand();
+			command.execute(request, response);
+			viewPage = "login.do";
+		}
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(viewPage);
 		dispatcher.forward(request, response);

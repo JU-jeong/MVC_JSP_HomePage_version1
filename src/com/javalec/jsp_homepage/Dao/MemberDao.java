@@ -15,6 +15,7 @@ import javax.naming.InitialContext;
 import javax.servlet.http.HttpServletResponse;
 import javax.sql.DataSource;
 
+import com.javalec.jsp_homepage.Dao.MemberDao;
 import com.javalec.jsp_homepage.Dto.MemberDto;
 
 
@@ -31,7 +32,7 @@ public class MemberDao {
 	
 	DataSource dataSource;
 	
-		
+	private static MemberDao instance = new MemberDao();
 
 
 
@@ -47,6 +48,11 @@ public class MemberDao {
 			e.printStackTrace();
 		}
 	}
+	
+	public static MemberDao getInstance() {
+		return instance;
+	}
+	
 	
 	public int JoinOK(String PId, String PPw, String PName, String PEMail, Timestamp PTime, String PAddress) {
 		// TODO Auto-generated method stub
@@ -204,7 +210,7 @@ public class MemberDao {
 		return dto;
 	}
 	
-	public int updateMember(MemberDto dto) {
+	public int updateMember(String id,String pw,String eMail,String address) {
 		int result=0;
 		
 		Connection connection = null;
@@ -214,10 +220,10 @@ public class MemberDao {
 		try {
 			connection = getConnection();
 			pstmt = connection.prepareStatement(query);
-			pstmt.setString(1, dto.getPw());
-			pstmt.setString(2, dto.geteMail());
-			pstmt.setString(3, dto.getAddress());
-			pstmt.setString(4, dto.getId());
+			pstmt.setString(1, pw);
+			pstmt.setString(2, eMail);
+			pstmt.setString(3, address);
+			pstmt.setString(4, id);
 			result = pstmt.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();

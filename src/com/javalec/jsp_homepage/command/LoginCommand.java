@@ -29,6 +29,7 @@ public class LoginCommand implements Command {
 			MemberDto dto = dao.getMember(id);
 			String name = dto.getName();
 			session.setAttribute("name", name);
+			session.setAttribute("Login_Result", Login_Result);
 			session.setAttribute("ValidMem", "yes");
 		}
 	}
