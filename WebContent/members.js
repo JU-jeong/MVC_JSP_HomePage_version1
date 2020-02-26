@@ -33,7 +33,7 @@ function infoConfirm(){
 		reg_frm.eMail.focus();
 		return;
 	}
-	
+	alert("Join Success!");
 	document.reg_frm.submit();
 	
 }
@@ -53,6 +53,6 @@ function updateInfoConfirm(){
 		reg_frm.name.focus();
 		return;
 	}
-	
+	alert("Update Success!");
 	document.reg_frm.submit();
 }

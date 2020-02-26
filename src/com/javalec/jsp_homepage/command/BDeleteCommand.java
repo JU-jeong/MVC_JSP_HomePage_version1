@@ -1,0 +1,26 @@
+package com.javalec.jsp_homepage.command;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import com.javalec.jsp_homepage.Dao.BDao;
+import com.javalec.jsp_homepage.Dto.BDto;
+
+public class BDeleteCommand implements Command {
+
+	@Override
+	public void execute(HttpServletRequest request, HttpServletResponse response) {
+		// TODO Auto-generated method stub
+		
+		String bId = request.getParameter("bId");
+		String bName = request.getParameter("bName");
+		BDao dao = new BDao();
+		int Delete_Result = dao.delete(bId, bName);
+		
+		HttpSession session = request.getSession();
+		
+		session.setAttribute("Delete_Result", Delete_Result);
+	}
+
+}

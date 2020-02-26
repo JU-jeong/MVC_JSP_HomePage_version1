@@ -10,6 +10,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.javalec.jsp_homepage.command.BContentCommand;
+import com.javalec.jsp_homepage.command.BDeleteCommand;
+import com.javalec.jsp_homepage.command.BListCommand;
+import com.javalec.jsp_homepage.command.BModifyCommand;
+import com.javalec.jsp_homepage.command.BReplyCommand;
+import com.javalec.jsp_homepage.command.BReplyViewCommand;
+import com.javalec.jsp_homepage.command.BWriteCommand;
 import com.javalec.jsp_homepage.command.Command;
 import com.javalec.jsp_homepage.command.JoinCommand;
 import com.javalec.jsp_homepage.command.LoginCommand;
@@ -83,6 +90,36 @@ public class FrontController extends HttpServlet {
 			command = new ModifyCommand();
 			command.execute(request, response);
 			viewPage = "login.do";
+		} else if(com.equals("/write_view.do")) {
+			viewPage = "write_view.jsp";
+		} else if(com.equals("/write.do")) {
+			command = new BWriteCommand();
+			command.execute(request, response);
+			viewPage = "list.do";
+		} else if(com.equals("/list.do")) {
+			command = new BListCommand();
+			command.execute(request, response);
+			viewPage = "list.jsp";
+		} else if(com.equals("/content_view.do")){
+			command = new BContentCommand();
+			command.execute(request, response);
+			viewPage = "content_view.jsp";
+		} else if(com.equals("/Bmodify.do")) {
+			command = new BModifyCommand();
+			command.execute(request, response);
+			viewPage = "list.do";
+		} else if(com.equals("/delete.do")) {
+			command = new BDeleteCommand();
+			command.execute(request, response);
+			viewPage = "list.do";
+		} else if(com.equals("/reply_view.do")) {
+			command = new BReplyViewCommand();
+			command.execute(request, response);
+			viewPage = "reply_view.jsp";
+		} else if(com.equals("/reply.do")) {
+			command = new BReplyCommand();
+			command.execute(request, response);
+			viewPage = "list.do";
 		}
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(viewPage);

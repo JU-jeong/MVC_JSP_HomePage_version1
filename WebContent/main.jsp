@@ -34,7 +34,7 @@
 	<form action = "logout.do" method = "post">
 		<input type = "submit" value = "로그아웃"> &nbsp;&nbsp;&nbsp; 
 		<input type = "button" value = "정보수정" onclick = "javascript:window.location='modify.do'">
-		<input type = "button" value = "게시판" onclick = "javascript:window.location='modify.do'">
+		<input type = "button" value = "게시판" onclick = "javascript:window.location='list.do'">
 	</form>
 </body>
 </html>
