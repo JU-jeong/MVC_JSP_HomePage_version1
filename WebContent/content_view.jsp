@@ -22,15 +22,15 @@
 			</tr>
 			<tr>
 				<td> 이름 </td>
-				<td> <input type="text" name="bName" value="${content_view.bName}"></td>
+				<td> ${content_view.bName}</td>
 			</tr>
 			<tr>
 				<td> 제목 </td>
-				<td> <input type="text" name="bTitle" value="${content_view.bTitle}"></td>
+				<td> ${content_view.bTitle}</td>
 			</tr>
 			<tr>
 				<td> 내용 </td>
-				<td> <textarea rows="10" name="bContent" >${content_view.bContent}</textarea></td>
+				<td> ${content_view.bContent}</td>
 			</tr>
 			<tr>
 				<td colspan="2"> <input type="submit" value="수정"> &nbsp;&nbsp;

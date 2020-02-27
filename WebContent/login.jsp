@@ -11,24 +11,10 @@
 <body>
 <c:set var="ValidMem" value="${ValidMem}" />
     <c:if test="${ValidMem ne null}">
-        <jsp:forward page = "main.do"></jsp:forward>
+    <%
+         response.sendRedirect("main.jsp"); 
+    %>
     </c:if>
-
-	<c:set var = "Join_Result" value = "${Join_Result}"/>
-	<c:choose>
-    <c:when test="${Join_Result eq 1}">
-        <script language = "javascript">
-			alert("Join Success");
-		</script>
-		<c:remove var="Join_Result"/>
-    </c:when>
-    <c:when test="${Join_Result eq 0}">
-        <script language = "javascript">
-			alert("Join Failure");
-		</script>
-		<c:remove var="Join_Result"/>
-    </c:when>
-    </c:choose>
     
 	<form action = "loginOK.do" method = "post">
 		아이디: <input type = "text" name = "id" value="<% if(session.getAttribute("id") != null) out.println(session.getAttribute("id"));%>"> <br/>
