@@ -24,10 +24,10 @@
 	</header>
 	<form action = "loginOK.do" method = "post" name="reg_frm">
 		<div class="row gtr-uniform">
-			<div class="col-12"><input type = "text" name = "id" value = "<%=dto.getId() %>" placeholder="ID" /></div>
+			<div class="col-12"><input type = "text" name = "id" value = "<%=dto.getId() %>  --> ID는 바꿀수 없습니다." readonly/></div>
 			<div class="col-12"><input type = "password" name = "pw" placeholder="PW" /></div>
 			<div class="col-12"><input type ="password" name ="pw_check" placeholder="PW_CHECK" /></div>
-			<div class="col-12"><input type ="text" name ="name" value = "<%=dto.getName()%>" placeholder="NAME" readonly/></div>
+			<div class="col-12"><input type ="text" name ="name" value = "<%=dto.getName()%>  --> 이름은 바꿀수 없습니다." readonly/></div>
 			<div class="col-12"><input type = "text" name = "eMail" value = "<%=dto.geteMail() %>" placeholder="EMAIL" /></div>
 			<div class="col-12"><input type="text" name="address" value="<%= dto.getAddress() %>" placeholder="ADDRESS" /></div>
 			<div class="col-12">

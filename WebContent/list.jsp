@@ -40,6 +40,9 @@
 		<c:remove var="Delete_Result"/>
     </c:when>
     </c:choose>
+    <section id="four" class="main">
+				<div class="container">
+					<div class="content">
     <section>
 		<h4>°Ô½ÃÆÇ</h4>
 		<div class="table-wrapper">
@@ -71,6 +74,9 @@
 				</tbody>
 			</table>
 		</div>
+	</section>
+	</div>
+	</div>
 	</section>
 	
 </body>

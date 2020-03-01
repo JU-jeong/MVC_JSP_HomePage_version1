@@ -27,7 +27,7 @@
 					<ul class="actions special">
 						<li><input type = "submit" value = "로그아웃" class="primary"></li>
 						<li><input type = "button" value = "정보수정" onclick = "javascript:window.location='modify.do'" class="primary"></li>
-						<li><input type = "button" value = "게시판" onclick = "javascript:window.location='list.do'"></li>
+						<li><input type = "button" value = "게시판" onclick = "javascript:window.location='list.do'" class="primary"></li>
 					</ul>
 				</div>
 			</div>
