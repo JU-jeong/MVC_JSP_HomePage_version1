@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
     <link rel="stylesheet" href="css_folder/assets/css/main.css" />
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -11,17 +11,15 @@
 
 	<table width="500" cellpadding="0" cellspacing="0" border="1">
 		<form action="write.do" method="post">
-			<input type="text" name="bName" value="${name}">
+			<input type="hidden" name="bName" value="${name}">
 			<tr>
-				<td> а╕╦Я </td>
-				<td> <input type="text" name="bTitle" size = "50"> </td>
+				<td> Л═°К╙╘: <input type="text" name="bTitle" size = "50"> </td>
 			</tr>
 			<tr>
-				<td> Ё╩©К </td>
-				<td> <textarea name="bContent" rows="10" ></textarea> </td>
+				<td> К┌╢Л ╘: <textarea name="bContent" rows="10" ></textarea> </td>
 			</tr>
 			<tr >
-				<td colspan="2"> <input type="submit" value="ют╥б"> &nbsp;&nbsp; <a href="list.do">╦Я╥о╨╦╠Б</a></td>
+				<td colspan="2"> <input type="submit" value="Й╦─ Л·▒Л└╠"> &nbsp;&nbsp; <a href="list.do">К╙╘К║²КЁ╢Й╦╟</a></td>
 			</tr>
 		</form>
 	</table>

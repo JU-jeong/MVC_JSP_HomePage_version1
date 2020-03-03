@@ -105,6 +105,8 @@ public class FrontController extends HttpServlet {
 			command.execute(request, response);
 			viewPage = "content_view.jsp";
 		} else if(com.equals("/Bmodify.do")) {
+			viewPage = "Bmodify.jsp";
+		} else if(com.equals("/BmodifyOK.do")) {
 			command = new BModifyCommand();
 			command.execute(request, response);
 			viewPage = "list.do";

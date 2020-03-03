@@ -19,13 +19,12 @@ public class BModifyCommand implements Command {
 		String bTitle = request.getParameter("bTitle");
 		String bContent = request.getParameter("bContent");
 		
-		System.out.println(bTitle + bContent);
-//		BDao  dao = new BDao();
-//		int Modify_Result = dao.modify(bId, bName, bTitle, bContent);
-//		
-//		HttpSession session = request.getSession();
-//		
-//		session.setAttribute("Modify_Result", Modify_Result);
+		BDao dao = new BDao();
+		int Modify_Result = dao.modify(bId, bName, bTitle, bContent);
+		
+		HttpSession session = request.getSession();
+		
+		session.setAttribute("Modify_Result", Modify_Result);
 		
 	}
 

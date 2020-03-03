@@ -1,33 +1,43 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
     <link rel="stylesheet" href="css_folder/assets/css/main.css" />
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<title>∞‘Ω√π∞</title>
+<title>Í≤åÏãúÎ¨º</title>
 </head>
 <body>
 	<section id="four" class="main">
 				<div class="container">
 					<div class="content">
 						<section>
-							<h4>∞‘Ω√π∞</h4>
+							<h4>Í≤åÏãúÎ¨º</h4>
 							<form action="Bmodify.do" method="post">
+								<input type="hidden" name="bId" value="${content_view.bId}"/>
+								<input type="hidden" name="bName" value="${content_view.bName}"/>
 								<div class="row gtr-uniform">
 									<div class="col-6 col-12-xsmall">
-										<input type="text" name="bTitle" value="${content_view.bTitle}" placeholder="Name" />
+										<input type="text" name="bTitle" value="${content_view.bTitle}" placeholder="Title" readonly/>
 									</div>
 									
 									<div class="col-12">
-										<textarea name="bContent" rows="6">${content_view.bContent}</textarea>
+										<textarea name="bContent" rows="6" readonly>${content_view.bContent}</textarea>
 									</div>
-									<input type="submit" value="ºˆ¡§">
-									<a href="list.do">∏Ò∑œ∫∏±‚</a> &nbsp;&nbsp; 
-									<a href="delete.do?bId=${content_view.bId}?bName=${content_view.bName}">ªË¡¶</a> &nbsp;&nbsp; 
-									<a href="reply_view.do?bId=${content_view.bId}">¥‰∫Ø</a>
+									
 								</div>
+									<input type="submit" value="ÏàòÏ†ï" class="button">
+									<a href="list.do" class="button">Î™©Î°ùÎ≥¥Í∏∞</a> 
 							</form>
+								
+								<form action="delete.do" method="post">
+									<input type="hidden" name="bId" value="${content_view.bId}"/>
+									<input type="hidden" name="name" value="${name}"/>
+									<input type="submit" value="ÏÇ≠Ï†ú" class="button">
+									<a href="reply_view.do?bId=${content_view.bId}" class="button">ÎãµÎ≥Ä</a>
+								</form>
+								
+								
 						</section>
 
 						

@@ -151,10 +151,10 @@ public class BDao {
 		return dto;
 	}
 	
-	public int modify(String bId, String bName, String bTitle, String bContent) {
+	public int modify(String bId, String name, String bTitle, String bContent) {
 		// TODO Auto-generated method stub
 		
-		int check = check_user(bId, bName);
+		int check = check_user(bId, name);
 		if(check==1) {
 			Connection connection = null;
 			PreparedStatement preparedStatement = null;
@@ -162,12 +162,11 @@ public class BDao {
 			try {
 				connection = dataSource.getConnection();
 				
-				String query = "update mvc_board set bName = ?, bTitle = ?, bContent = ? where bId = ?";
+				String query = "update mvc_board set bTitle = ?, bContent = ? where bId = ?";
 				preparedStatement = connection.prepareStatement(query);
-				preparedStatement.setString(1, bName);
-				preparedStatement.setString(2, bTitle);
-				preparedStatement.setString(3, bContent);
-				preparedStatement.setInt(4, Integer.parseInt(bId));
+				preparedStatement.setString(1, bTitle);
+				preparedStatement.setString(2, bContent);
+				preparedStatement.setInt(3, Integer.parseInt(bId));
 				int rn = preparedStatement.executeUpdate();
 				
 			} catch (Exception e) {
@@ -187,7 +186,7 @@ public class BDao {
 		return check;
 	}
 	
-	private int check_user(String bId, String bName) {
+	private int check_user(String bId, String name) {
 		// TODO Auto-generated method stub
 		int result = 0;
 		Connection connection = null;
@@ -199,7 +198,7 @@ public class BDao {
 			String query = "select bName from mvc_board where bId = ? and bName = ?";
 			preparedStatement = connection.prepareStatement(query);
 			preparedStatement.setString(1, bId);
-			preparedStatement.setString(2, bName);
+			preparedStatement.setString(2, name);
 			set = preparedStatement.executeQuery();
 			
 			if(set.next()) {

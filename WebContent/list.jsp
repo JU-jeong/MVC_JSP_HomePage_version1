@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <link rel="stylesheet" href="css_folder/assets/css/main.css" />
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -9,7 +9,7 @@
 <title>Board</title>
 </head>
 <body>
-	<c:set var="Modify_Result" value="${Modify_Result}" />
+	<c:set var="Modify_Result" value="${param.Modify_Result}" />
     <c:choose>
     <c:when test="${Modify_Result eq 1}">
         <script language = "javascript">
@@ -44,16 +44,16 @@
 				<div class="container">
 					<div class="content">
     <section>
-		<h4>°Ô½ÃÆÇ</h4>
+		<h4>ê²Œì‹œíŒ</h4>
 		<div class="table-wrapper">
 			<table class="alt">
 				<thead>
 					<tr>
-						<th>¹øÈ£</th>
-						<th>ÀÛ¼ºÀÚ</th>
-						<th>Á¦¸ñ</th>
-						<th>³¯Â¥</th>
-						<th>È÷Æ®</th>
+						<th>No.</th>
+						<th>Writer</th>
+						<th>Title</th>
+						<th>Date</th>
+						<th>Hit</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -69,7 +69,7 @@
 				</tr>
 				</c:forEach>
 				<tr>
-					<td colspan="5"> <a href="write_view.do">±ÛÀÛ¼º</a> </td>
+					<td colspan="5"> <a href="write_view.do">ê¸€ì‘ì„±</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="logout.do">ë¡œê·¸ì•„ì›ƒ</a></td>
 				</tr>
 				</tbody>
 			</table>

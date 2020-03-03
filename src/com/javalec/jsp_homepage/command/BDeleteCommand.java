@@ -14,9 +14,9 @@ public class BDeleteCommand implements Command {
 		// TODO Auto-generated method stub
 		
 		String bId = request.getParameter("bId");
-		String bName = request.getParameter("bName");
+		String name = request.getParameter("name");
 		BDao dao = new BDao();
-		int Delete_Result = dao.delete(bId, bName);
+		int Delete_Result = dao.delete(bId, name);
 		
 		HttpSession session = request.getSession();
 		

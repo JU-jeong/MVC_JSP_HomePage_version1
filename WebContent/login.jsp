@@ -23,9 +23,9 @@
 	<form action = "loginOK.do" method = "post">
 		<div class="row gtr-uniform">
 			<h4>ID</h4>
-			<div class="col-6 col-12-xsmall"><input type="text" name="id" value="<% if(session.getAttribute("id") != null) out.println(session.getAttribute("id"));%>" placeholder="ID" /></div>
+			<div class="col-12"><input type="text" name="id" value="<% if(session.getAttribute("id") != null) out.println(session.getAttribute("id"));%>" placeholder="ID" /></div>
 			<h4>PW</h4>
-			<div class="col-6 col-12-xsmall"><input type="password" name="pw" placeholder="PW" /></div>
+			<div class="col-12"><input type="password" name="pw" placeholder="PW" /></div>
 			<div class="col-12">
 				<ul class="actions special">
 					<li><input type = "submit" value="로그인" class="primary" /></li>

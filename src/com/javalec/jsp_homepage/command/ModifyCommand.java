@@ -20,6 +20,7 @@ public class ModifyCommand implements Command {
 		String eMail = request.getParameter("eMail");
 		String address = request.getParameter("address");
 		
+		System.out.println(id + pw + eMail + address);
 		MemberDao dao = new MemberDao();
 		int Update_Result = dao.updateMember(id, pw, eMail, address);
 		
