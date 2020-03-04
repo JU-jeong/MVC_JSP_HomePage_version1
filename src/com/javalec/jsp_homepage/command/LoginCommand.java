@@ -19,11 +19,11 @@ public class LoginCommand implements Command {
 
 		String id = request.getParameter("id");
 		String pw = request.getParameter("pw");
-		
+
 		MemberDao dao = new MemberDao();
 		int Login_Result = dao.LoginOK(id, pw);
 		HttpSession session = request.getSession();
-		if(Login_Result == 1) {
+		if (Login_Result == 1) {
 			session.setAttribute("id", id);
 			MemberDto dto = dao.getMember(id);
 			String name = dto.getName();

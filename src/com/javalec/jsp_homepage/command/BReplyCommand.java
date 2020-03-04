@@ -19,10 +19,10 @@ public class BReplyCommand implements Command {
 		String bGroup = request.getParameter("bGroup");
 		String bStep = request.getParameter("bStep");
 		String bIndent = request.getParameter("bIndent");
-		
+
 		BDao dao = new BDao();
 		dao.reply(bId, bName, bTitle, bContent, bGroup, bStep, bIndent);
-		
+
 	}
 
 }

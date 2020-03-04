@@ -23,13 +23,12 @@ public class JoinCommand implements Command {
 		String eMail = request.getParameter("eMail");
 		Timestamp time = new Timestamp(System.currentTimeMillis());
 		String address = request.getParameter("address");
-		
+
 		MemberDao dao = new MemberDao();
 		int Join_Result = dao.JoinOK(id, pw, name, eMail, time, address);
 		HttpSession session = request.getSession();
 		session.setAttribute("id", id);
 		session.setAttribute("Join_Result", Join_Result);
-		
 
 	}
 

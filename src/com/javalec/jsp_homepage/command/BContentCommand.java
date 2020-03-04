@@ -15,9 +15,9 @@ public class BContentCommand implements Command {
 		String bId = request.getParameter("bId");
 		BDao dao = new BDao();
 		BDto dto = dao.contentView(bId);
-		
+
 		request.setAttribute("content_view", dto);
-		
+
 	}
 
 }
