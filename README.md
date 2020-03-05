@@ -14,18 +14,25 @@
 <h3>1. FrontController</h3>  
 *.do 파일로 오는 요청들은 모두 FrontController를 거치게 됩니다.  
 각 요청들은 상황에 맞는 Command를 실행하게 된 후 RequestDispatcher를 통해 forward방식으로 그 주소로 이동하게 됩니다.  
+
 ![1](https://user-images.githubusercontent.com/52438368/75953287-65bae600-5ef4-11ea-838c-ced1ce5bdaa1.PNG)
 
 <h3>2. 자바 스크립트, JSTL</h3>
 우선 members.js 라는 자바스크립트에 infoConfirm() 함수를 거쳐 예외가 있는 지 확인하고 해당 페이지로 이동하게 하였습니다.  
+
 ![2](https://user-images.githubusercontent.com/52438368/75953582-ff829300-5ef4-11ea-891c-c53853beae91.PNG)  
+
 ![3](https://user-images.githubusercontent.com/52438368/75953583-00b3c000-5ef5-11ea-80b2-cd45fd366f5d.PNG)  
-JSTL을 사용하여 코드가 복잡해 보이지 않게 하였습니다.
-![4](https://user-images.githubusercontent.com/52438368/75953623-19bc7100-5ef5-11ea-9962-251761748896.PNG)
+
+JSTL을 사용하여 코드가 복잡해 보이지 않게 하였습니다.  
+
+![4](https://user-images.githubusercontent.com/52438368/75953623-19bc7100-5ef5-11ea-9962-251761748896.PNG)  
 
 <h3>3. Command 패턴</h3>
 Command에 execute라는 함수를 만들어 인터페이스로 등록해놓고 각 상황에 맞는 커맨드를 따로 만들어서 각 요청이 올바른 동작을 수행할 수 있도록 하였습니다.  
-![5](https://user-images.githubusercontent.com/52438368/75953925-c991de80-5ef5-11ea-804d-9f5ca044c136.PNG)
+
+![5](https://user-images.githubusercontent.com/52438368/75953925-c991de80-5ef5-11ea-804d-9f5ca044c136.PNG)  
+
 ![6](https://user-images.githubusercontent.com/52438368/75953927-cb5ba200-5ef5-11ea-809b-d35d67d75f14.PNG)
 
 forward와 redirect를 적절히 사용하여 주소에 보안성을 높였습니다.  
