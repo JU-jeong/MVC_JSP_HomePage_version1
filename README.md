@@ -125,19 +125,19 @@ forward와 redirect를 적절히 사용하여 주소에 보안성을 높였습�
 ## 결과 화면  
 
 
-1. 로그인 페이지
+### 1. 로그인 페이지
 ![1](https://user-images.githubusercontent.com/52438368/75952593-808c5b00-5ef2-11ea-8e52-26969281560a.PNG)
-2. 회원가입 페이지
+### 2. 회원가입 페이지
 ![2](https://user-images.githubusercontent.com/52438368/75952594-8124f180-5ef2-11ea-91de-4599b5a913da.PNG)
-3. 메인 페이지
+### 3. 메인 페이지
 ![3](https://user-images.githubusercontent.com/52438368/75952597-82561e80-5ef2-11ea-9617-098c154e5ac9.PNG)
-4. 회원정보 수정 페이지
+### 4. 회원정보 수정 페이지
 ![4](https://user-images.githubusercontent.com/52438368/75952599-83874b80-5ef2-11ea-9adf-34ba397297b1.PNG)
-5. 글 목록 페이지
+### 5. 글 목록 페이지
 ![5](https://user-images.githubusercontent.com/52438368/75952601-84b87880-5ef2-11ea-96fd-366ae5f17e14.PNG)
-6. 글 작성 페이지
+### 6. 글 작성 페이지
 ![6](https://user-images.githubusercontent.com/52438368/75952603-85510f00-5ef2-11ea-8499-af50bc47ea98.PNG)
-7. 글 수정 페이지
+### 7. 글 수정 페이지
 ![7](https://user-images.githubusercontent.com/52438368/75952604-85510f00-5ef2-11ea-8ca8-ab1733053eb3.PNG)
-8. 글 답변 페이지
+### 8. 글 답변 페이지
 ![8](https://user-images.githubusercontent.com/52438368/75952606-85e9a580-5ef2-11ea-90b2-c36b2bfb3dfa.PNG)
