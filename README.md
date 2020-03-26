@@ -11,6 +11,7 @@
 ## 프로젝트 설명
 이 프로젝트는 JAVA, JSP, Servlet, JS, DB만을 이용하여 만든 로그인, 회원가입 및 게시판 기능이 있는 홈페이지 구축 프로젝트입니다.  
 
+
 ## 프로젝트 기술 설명
 <h3>1. FrontController</h3>  
 *.do 파일로 오는 요청들은 모두 FrontController를 거치게 됩니다.  
