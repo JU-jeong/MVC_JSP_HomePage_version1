@@ -7,6 +7,7 @@
 * 기능 소개
 * 예상 시나리오
 * 결과 화면
+* 세부 정보
 
 ## 프로젝트 설명
 이 프로젝트는 JAVA, JSP, Servlet, JS, DB만을 이용하여 만든 로그인, 회원가입 및 게시판 기능이 있는 홈페이지 구축 프로젝트입니다.  
@@ -142,3 +143,9 @@ forward와 redirect를 적절히 사용하여 주소에 보안성을 높였습�
 ![7](https://user-images.githubusercontent.com/52438368/75952604-85510f00-5ef2-11ea-8ca8-ab1733053eb3.PNG)
 ### 8. 글 답변 페이지
 ![8](https://user-images.githubusercontent.com/52438368/75952606-85e9a580-5ef2-11ea-90b2-c36b2bfb3dfa.PNG)
+
+## 세부정보
+전체적인 게시판 필기본  
+[https://leekijong.github.io/programming/2020/01/17/%EA%B2%8C%EC%8B%9C%ED%8C%90.html](https://leekijong.github.io/programming/2020/01/17/%EA%B2%8C%EC%8B%9C%ED%8C%90.html)  
+전체 주요 코드 필기본  
+[https://leekijong.github.io/programming/2020/07/01/jspRE.html](https://leekijong.github.io/programming/2020/07/01/jspRE.html)  
